@@ -29,6 +29,35 @@ class Backdrop extends StatefulWidget {
 }
 
 // TODO: Add _FrontLayer class (104)
+class _FrontLayer extends StatelessWidget {
+  // TODO: Add on-tap callback (104)
+  const _FrontLayer({
+    Key key,
+    this.child,
+  }) : super(key: key);
+
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+      elevation: 16.0,
+      shape: BeveledRectangleBorder(
+        borderRadius: BorderRadius.only(topLeft: Radius.circular(46.0)),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: <Widget>[
+          // TODO: Add a GestureDetector (104)
+          Expanded(
+            child: child,
+          ),
+        ],
+      ),
+    );
+  }
+}
+
 // TODO: Add _BackdropTitle class (104)
 // TODO: Add _BackdropState class (104)
 class _BackdropState extends State<Backdrop>
@@ -43,7 +72,9 @@ class _BackdropState extends State<Backdrop>
       key: _backdropKey,
       children: <Widget>[
         widget.backLayer,
-        widget.frontLayer,
+        // TODO: Add a PositionedTransition (104)
+        // TODO: Wrap front layer in _FrontLayer (104)
+        _FrontLayer(child: widget.frontLayer),
       ],
     );
   }
