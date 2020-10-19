@@ -26,6 +26,8 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: Return an AsymmetricView (104)
     // TODO: Pass Category variable to AsymmetricView (104)
+    return AsymmetricView(
+        products: ProductsRepository.loadProducts(Category.all));
     return Scaffold(
       // TODO: Add app bar (102)
       appBar: AppBar(
